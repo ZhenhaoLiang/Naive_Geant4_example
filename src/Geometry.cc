@@ -10,7 +10,7 @@ G4VPhysicalVolume* BeginnerDetectorConstruction::Construct() {
 	// Solid
 	auto solid_world = new G4Box("world", 0.5 * m, 0.5 * m, 0.5 * m);
 	// Logic
-	auto logic_world = new G4LogicalVolume(solid_world, nist->FindOrBuildMaterial("G4_Pd"), "world");
+	auto logic_world = new G4LogicalVolume(solid_world, nist->FindOrBuildMaterial("G4_Air"), "world");
 	// Physics
 	auto physical_world = new G4PVPlacement(
 		0,
@@ -25,7 +25,7 @@ G4VPhysicalVolume* BeginnerDetectorConstruction::Construct() {
 
 	auto solid_sheild = new G4Box("sheild", 5 * cm, 5 * cm, 2 * cm);
 	// Logic
-	auto logic_sheild = new G4LogicalVolume(solid_sheild, nist->FindOrBuildMaterial("G4_AIR"), "sheild");
+	auto logic_sheild = new G4LogicalVolume(solid_sheild, nist->FindOrBuildMaterial("G4_Pb"), "sheild");
 	// Physics
 	auto physical_sheild = new G4PVPlacement(
 		0,
