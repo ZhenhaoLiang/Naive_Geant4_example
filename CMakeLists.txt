@@ -3,7 +3,7 @@ project(G4tutorial)
 
 #load G4
 find_package(Geant4 REQUIRED)
-include($(Geant4_USE_FILE))
+include(${Geant4_USE_FILE})
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 #files you want to complie

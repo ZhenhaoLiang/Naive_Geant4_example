@@ -1,6 +1,6 @@
 #include "QGSP_BERT_HP.hh"
 #include "G4MTRunManager.hh"
-#include "BeginnerGeometry.hh"
+#include "Geometry.hh"
 #include "ParticleSource.hh"
 #include "G4VUserActionInitialization.hh"
 #include "G4UImanager.hh"
