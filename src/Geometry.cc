@@ -34,7 +34,7 @@ G4VPhysicalVolume* BeginnerDetectorConstruction::Construct() {
 		"sheild",
 		logic_world,    //its mother  volume
 		false,
-		0,
+		1,
 		true
 	);
 	return physical_world;
