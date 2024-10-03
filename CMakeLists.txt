@@ -13,4 +13,4 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/.hh)
 #add executable file ZL
 add_executable(ZL G4tutorial.cc ${sources} ${headers})
 
-target_link_libraries(ZL ${Geant4_LIBRARIES}
+target_link_libraries(ZL ${Geant4_LIBRARIES})
