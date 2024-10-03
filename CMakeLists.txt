@@ -14,3 +14,17 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/.hh)
 add_executable(ZL G4tutorial.cc ${sources} ${headers})
 
 target_link_libraries(ZL ${Geant4_LIBRARIES})
+
+set(G4tutorials_SCRIPTS
+	auto.mac
+	vis.mac
+)
+
+foreach(_script ${G4tutorials_SCRIPTS})
+	configure_file(
+		${PROJECT_SOURCE_DIR}/${_script}
+		${PROJECT_BINARY_DIR}/${_script}
+		COPYONLY
+	)
+endforeach()
+
