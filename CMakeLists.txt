@@ -44,8 +44,6 @@ target_link_libraries(toyMC ${Geant4_LIBRARIES})
 #
 set(EXAMPLEB1_SCRIPTS
   init_vis.mac
-  run1.mac
-  run2.mac
   vis.mac
   )
 
