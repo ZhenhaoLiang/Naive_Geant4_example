@@ -27,13 +27,18 @@
 DetectorConstruction::DetectorConstruction()
 : G4VUserDetectorConstruction()
 {
-  DefineMaterial();
+    fDetectorMessenger = new DetectorMessenger(this);
+    Xeradius = 4.0;
+    Xehalflength = 4.0;
+    DefineMaterial();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 DetectorConstruction::~DetectorConstruction()
-{ }
+{
+    delete fDetectorMessenger;
+ }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void DetectorConstruction::DefineMaterial()
@@ -84,7 +89,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   G4Tubs* solidXecylinder =    
     new G4Tubs("solidXecylinder",                    //its name
-        0, 4*cm, 2.5*cm,0, 360*deg); //its size
+        0, Xeradius*cm, Xehalflength*cm,0, 360*deg); //its size
       
   G4LogicalVolume* logicXecylinder =                         
     new G4LogicalVolume(solidXecylinder,            //its solid
@@ -103,4 +108,15 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   return physWorld;
 }
 
+void DetectorConstruction::setXeradius(G4float value)
+{
+  Xeradius = value; 
+  G4RunManager::GetRunManager()->ReinitializeGeometry();
+}
+
+void DetectorConstruction::setXehalflength(G4float value)
+{
+  Xehalflength = value; 
+  G4RunManager::GetRunManager()->ReinitializeGeometry();
+}
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
