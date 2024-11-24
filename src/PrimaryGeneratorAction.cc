@@ -16,7 +16,8 @@
 PrimaryGeneratorAction::PrimaryGeneratorAction()
 : G4VUserPrimaryGeneratorAction()
 {
-  G4int n_particle = 100000;
+  /*
+  G4int n_particle = 1;
   fParticleGun  = new G4ParticleGun(n_particle);
 
   // default particle kinematic
@@ -25,14 +26,10 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
   G4ParticleDefinition* particle
     = particleTable->FindParticle(particleName="neutron");
   fParticleGun->SetParticleDefinition(particle);
-  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
-  fParticleGun->SetParticleEnergy(2.45*MeV);
-  
-  //fParticleGun  = new G4GeneralParticleSource();
+  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,1.,0.));
+  fParticleGun->SetParticleEnergy(2.45*MeV);*/
+  fParticleGun  = new G4GeneralParticleSource();
 }
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 PrimaryGeneratorAction::~PrimaryGeneratorAction()
 {
   delete fParticleGun;
@@ -42,7 +39,6 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
 
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
-  fParticleGun->SetParticlePosition(G4ThreeVector(0,0,-5*cm));
   fParticleGun->GeneratePrimaryVertex(anEvent);
 }
 

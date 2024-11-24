@@ -43,8 +43,8 @@ target_link_libraries(toyMC ${Geant4_LIBRARIES})
 # relies on these scripts being in the current working directory.
 #
 set(EXAMPLEB1_SCRIPTS
-  init_vis.mac
-  vis.mac
+    vis.mac
+    init_vis.mac
   )
 
 foreach(_script ${EXAMPLEB1_SCRIPTS})
